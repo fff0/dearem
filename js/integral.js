@@ -78,5 +78,6 @@ var code_data = [],value = 1001;
     })
     $('#clean2').click(function(){
         box2.removeClass('block')
-    })
+    });
+    $('#showCode').click(function () {$('.codeBox').eq(0).toggleClass('no_height')})
 })(jQuery);
