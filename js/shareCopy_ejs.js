@@ -1,15 +1,5 @@
-var code_data =[
-  {number:'10973486',time:'2019.09.20 14:55:00'},
-  {number:'10973486',time:'2019.09.20 14:55:00'},
-  {number:'10973486',time:'2019.09.20 14:55:00'},
-  {number:'10973486',time:'2019.09.20 14:55:00'},
-  {number:'10973486',time:'2019.09.20 14:55:00'}
-];
-var codeBox = $("#code_data").html();
-var codeHtml  = ejs.render(codeBox,code_data);
-$('#codeBox').html(codeHtml);
-
 var award_data = []
+var code_data = []
 
 var urlinfo = window.location.href,  //获取url 
 // value = urlinfo.split("?")[1].split("=")[1];   //拆分url得到=后面的参数 
@@ -24,11 +14,20 @@ $.post({
   data: JSON.stringify({ 'txnId': value}),
  success: function(res){
   // console.log(res)
+  // 获取商品数据
 	award_data = res.data.pointProduct;
 	console.log(award_data);
 	var awardBox = $("#award_data").html();
 	var awardHtml  = ejs.render(awardBox,award_data);
 	$('#award').html(awardHtml);
+	
+	// 获取幸运码
+	code_data = res.data.luckyCodeList;
+	console.log(code_data)
+	var codeBox = $("#code_data").html();
+	var codeHtml = ejs.render(codeBox,code_data);
+	$('#codeBox').html(codeHtml);
+	
  },
  error: function() {
   console.log(1);
