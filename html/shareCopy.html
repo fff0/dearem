@@ -44,7 +44,7 @@
       <div class="img-edit">
         <h3>一等奖</h3>
         <span><%= award_data.product.productName %></span>
-        <div>价值<%= award_data.product.markingPrice %>元 共1份</div>
+        <div>价值<%= award_data.product.markingPrice %>元 共<%= award_data.nowAmount %>份</div>
       </div>
 			</script>
       
@@ -53,7 +53,7 @@
     <section id="codeBox">
       <script id="code_data" type="text/template">
   <div class="massage">
-    <h2>我已获得<span class="number">1</span>个幸运码</h2>
+    <h2>我已获得<span class="number"><%= code_data.length %></span>个幸运码</h2>
   </div>
   <!-- 幸运码条数信息 -->
   <div class="codeBox" >
@@ -61,10 +61,10 @@
     
       <% for(var i=0;i < code_data.length;i++){ %>
     <div class="code">
-        <div class="code-number"><%= code_data[i].number%></div>
+        <div class="code-number"><%= code_data[i].code%></div>
       <div class="code-massage">
-        <h5>邀请好友所得</h5>
-        <span><%= code_data[i].time%></span>
+        <h5><%= code_data[i].codeFrom%></h5>
+        <span><%= code_data[i].createTime%></span>
       </div>
     </div>
     <% } %>
@@ -75,21 +75,7 @@
 </script>
 
 </section>
-    <!-- 幸运码条数信息 -->
-    <div class="codeBox" id="codeBox">
-      <!-- 单条幸运码信息 -->
-      <script id="code_data" type="text/template">
-        <% for(var i=0;i < code_data.length;i++){ %>
-      <div class="code">
-          <div class="code-number"><%= code_data[i].number%></div>
-        <div class="code-massage">
-          <h5>邀请好友所得</h5>
-          <span><%= code_data[i].time%></span>
-        </div>
-      </div>
-      <% } %>
-    </script>
-    </div>
+    
 
     <!-- 邀请按钮 -->
     <div class="button">
