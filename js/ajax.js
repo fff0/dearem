@@ -14,6 +14,8 @@ function sendAjax(url, dataType, param) {
 	// 		}
 	// 		param = paramStr;
 	// }
+
+	
 	$.ajax({
 		url: url,
 		data: param,
