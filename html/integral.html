@@ -21,7 +21,7 @@
   <div id="box">
     <!-- 每日抽奖头部 -->
     <div id="header">
-      <span class="title">每日抽奖</span>
+      <span class="title">积分兑换</span>
     </div>
     <!-- 内容部分 -->
 
@@ -64,6 +64,34 @@
     </div>
     <div class="tips">Tips：兑换越多 中奖概率越大哦</div>
 
+    <!-- 幸运码信息 -->
+    <section id="codeBox">
+      
+
+</section>
+<script id="code_data" type="text/template">
+  <div class="massage">
+    <h2>我已获得<span class="number"><%= code_data.length %></span>个幸运码</h2>
+  </div>
+  <!-- 幸运码条数信息 -->
+  <div class="codeBox" >
+    <!-- 单条幸运码信息 -->
+    
+      <% for(var i=0;i < code_data.length;i++){ %>
+    <div class="code">
+        <div class="code-number"><%= code_data[i].code %></div>
+      <div class="code-massage">
+        <h5><%= code_data[i].codeFrom %></h5>
+        <span><%= code_data[i].createTime %></span>
+      </div>
+    </div>
+    <% } %>
+  </div>
+  <% if(code_data.length > 1){ %>
+  <div class="showCode" id="showCode">查看所有幸运码</div>
+  <% } %>
+</script>
+
     <!-- 热门商品 -->
     <div id="hot-shops">
       <h3>热门商品</h3>
@@ -81,7 +109,7 @@
       <h1>积分抽奖</h1>
       <span></span>
       <div id="text">
-        <p>本次抽奖需要消耗100个积分</p>
+        <p>本次抽奖需要消耗<text id="num_count"></text>个积分</p>
         <p>您确认兑换吗</p>
       </div>
       <div id="button-box">
@@ -108,6 +136,7 @@
 <script>
   document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
 </script>
+<script src="./../lib/ejs.min.js"></script>
 <script src="./../lib/jquery.min.js"></script>
 <script src="./../js/integral.js"></script>
 
