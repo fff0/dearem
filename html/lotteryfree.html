@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="x5-page-mode" content="no-title">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-orientation" content="portrait">
+    <title>每日抽奖</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/lotteryfree.css">
+    <script>
+        // 根据不同屏幕进行自适应
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+    </script>
+    <script src="../lib/ejs.min.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <!-- 头部模板 -->
+        <header id="header"></header>
+        <script id="headerTemplate" type="text/template">
+            <div id="headerContent"><%= title%></div>
+        </script>
+
+        <main id="main">
+            <div class="layer">
+                <div class="close">×</div>
+                <h4>参与成功</h4>
+                <div class="hr"></div>
+                <div class="desc">获得1个幸运码<br />9月19 日12:00开奖<br />凭幸运码抽奖，码越多中奖概率越高</div>
+                <div class="luckyBox">
+                    <img src="../img/rectangular.png" alt="">
+                    <div class="luckyNum">10973486</div>
+                </div>
+                <p>每邀1位好友，可得5个幸运码</p>
+                <button class="btn">邀好友抽奖 得更多码</button>
+            </div>
+        </main>
+
+    </div>
+</body>
+<script src="../js/header.js"></script>
+
+</html>

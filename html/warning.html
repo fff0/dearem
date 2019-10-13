@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="x5-page-mode" content="no-title">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-orientation" content="portrait">
+    <title>每日抽奖</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/warning.css">
+    <script>
+        // 根据不同屏幕进行自适应
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+    </script>
+    <script src="../lib/ejs.min.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <!-- 头部模板 -->
+        <header id="header"></header>
+        <script id="headerTemplate" type="text/template">
+            <div id="headerContent"><%= title%></div>
+        </script>
+        <!-- 内容 -->
+        <main id="main">
+            <img src="../img/gift.png" alt="">
+            <div>您尚未参加抽奖<br />快去抽奖首页参加吧</div>
+        </main>
+        <!-- 底部模板 -->
+        <footer id="footer"> </footer>
+        <script src="../js/footer.ejs" id="footerTemplate" type="text/template">
+            <div id="footerContent">
+                <div class="button-left">
+                    <img src="../img/house.png" alt="">
+                    <span class="bottom-text">抽奖首页</span>
+                </div>
+                <div class="button-right">
+                    <img src="../img/small_gift.png" alt="">
+                    <span class="bottom-text">我的抽奖</span>
+                </div>
+            </div>
+        </script>
+    </div>
+</body>
+<script src="../js/header.js"></script>
+<script src="../js/footer.js"></script>
+
+</html>

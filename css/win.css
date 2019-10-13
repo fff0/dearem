@@ -1,0 +1,308 @@
+body,
+html {
+    font-size: .16rem;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: rgba(255, 255, 255, 1);
+}
+
+#box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: url(../img/bg2.png)no-repeat center;
+}
+
+#header {
+    height: .93rem;
+    font-size: .34rem;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 1);
+    line-height: .3rem;
+    text-align: center;
+    line-height: .93rem;
+    background: #fff;
+    border-bottom: 1px solid #aaaaad;
+}
+
+#inner {
+    width: 7.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    margin: .31rem 0 .19rem 0;
+    width: 100%;
+    position: relative;
+}
+
+.title-isWin {
+    display: block;
+    height: .48rem;
+    font-size: .48rem;
+    font-family: PingFang SC;
+    font-weight: bold;
+    line-height: .48rem;
+    margin-bottom: .16rem;
+}
+
+.title-left {
+    margin-left: .34rem;
+}
+
+.title-time {
+    width: 2.26rem;
+    height: .23rem;
+    font-size: .24rem;
+    font-family: PingFang SC;
+    font-weight: 500;
+    line-height: .3rem;
+}
+
+.title-right {
+    width: 1.06rem;
+    height: .38rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: .19rem;
+    position: absolute;
+    margin: 0 auto;
+    text-align: center;
+    right: .2rem;
+    top: 0;
+    line-height: .38rem;
+}
+
+.title-rule {
+    font-size: .2rem;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: rgba(38, 38, 38, 1);
+}
+
+#content {
+    width: 7.1rem;
+    height: 8.27rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: .12rem;
+}
+
+/* 奖品 */
+#content {
+    padding-top: .1rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#content .img {
+    width: 5rem;
+    height: 5rem;
+    background: red;
+    margin-bottom: .19rem;
+}
+
+#content .shop-name {
+    font-size: .2rem;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+}
+
+#content .shop-msg {
+    font-size: .28rem;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: rgba(255, 84, 96, 1);
+}
+
+#content .msg {
+    margin-top: .61rem;
+    text-align: center;
+    font-size: .48rem;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 1);
+}
+
+#content .btns {
+    position: relative;
+    top: .2rem;
+}
+
+#keep {
+    width: 2.3rem;
+    height: .76rem;
+    background: linear-gradient(90deg, rgba(255, 205, 98, 1), rgba(255, 175, 36, 1));
+    border-radius: .38rem;
+    border: none;
+    margin: 0 .1rem;
+    font-size: .34rem;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+}
+
+#go-index {
+    width: 2.3rem;
+    height: .76rem;
+    background: linear-gradient(90deg, rgba(184, 216, 255, 1), rgba(126, 184, 255, 1));
+    border-radius: .38rem;
+    border: none;
+    margin: 0 .1rem;
+    font-size: .34rem;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+}
+
+#footer {
+    position: relative;
+    top: .5rem;
+    text-align: center;
+    line-height: .69rem;
+}
+
+/* #footer .winner{
+    display: flex;
+    align-items: center;
+} */
+#footer .list-title {
+    font-size: .24rem;
+    font-family: PingFang SC;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+}
+
+#footer .atavar {
+    display: inline-block;
+    background: skyblue;
+    width: .69rem;
+    height: .69rem;
+    border: .01rem solid rgba(217, 217, 217, 1);
+    border-radius: 50%;
+}
+
+#footer .name {
+    width: 1.47rem;
+    font-size: .3rem;
+    font-family: PingFang SC;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+    margin: 0 .53rem 0 .13rem;
+}
+
+#footer .win-code {
+    width: 2.3rem;
+    font-size: .3rem;
+    font-family: PingFang SC;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+}
+
+#prize {
+    display: none;
+    height: 100%;
+    background: #000;
+}
+
+#prize #modal {
+    position: relative;
+    top: 2.43rem;
+    left: .75rem;
+    width: 6rem;
+    height: 6.43rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: .12rem;
+    padding-top: .42rem;
+    box-sizing: border-box;
+}
+
+#prize #close {
+    display: block;
+    position: absolute;
+    width: .6rem;
+    height: .6rem;
+    background: rgba(255, 255, 255, 1);
+    opacity: 0.5;
+    border-radius: 50%;
+    top: -0.7rem;
+    right: 0;
+    z-index: 10;
+}
+
+#prize .prize-name {
+    font-size: .24rem;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 1);
+    text-align: center;
+}
+
+#prize .hr {
+    display: block;
+    width: 5rem;
+    height: .01rem;
+    background: rgba(9, 20, 31, 1);
+    margin: .29rem .5rem .1rem;
+}
+
+#prize .user-info {
+    color: #000;
+    padding: 0 .5rem;
+}
+
+#prize .user-label {
+    display: block;
+    /* font-size: .06rem; */
+    font-family: PingFang SC;
+    font-weight: 500;
+    color: rgba(51, 51, 51, 1);
+    margin: .16rem 0 .08rem;
+}
+
+#prize .user-input {
+    width: 5rem;
+    height: .56rem;
+    background: rgba(239, 239, 244, 1);
+    border-radius: .04rem;
+    font-size: .24rem;
+    font-family: PingFang SC;
+    font-weight: 500;
+    color: rgba(190, 190, 190, 1);
+}
+
+#prize .btns {
+    display: flex;
+    border-top: .01rem solid rgba(9, 20, 31, 1);
+    align-items: center;
+    height: .87rem;
+    margin-top: .3rem;
+}
+
+#btns-cancel {
+    height: 100%;
+    text-align: center;
+    line-height: .87rem;
+    flex: .5;
+    font-size: .34rem;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: rgba(0, 122, 255, 1);
+}
+
+#btns-confirm {
+    height: 100%;
+    text-align: center;
+    flex: .5;
+    font-size: .34rem;
+    line-height: .87rem;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: rgba(0, 122, 255, 1);
+}

@@ -1,0 +1,13 @@
+#headerContent {
+    height: .93rem;
+    text-align: center;
+    font-size: .34rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 1);
+    line-height: .93rem;
+    background-color: #F7F7F7;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}

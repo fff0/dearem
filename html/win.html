@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="x5-page-mode" content="no-title">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-orientation" content="portrait">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/win.css">
+    <title>开奖已中奖</title>
+    <script>
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <header id="header">每日抽奖</header>
+        <!-- 内容区域 -->
+        <section id="inner">
+            <div class="title">
+                <div class="title-left">
+                    <span class="title-isWin">已开奖</span>
+                    <span class="title-time">9月19日23:00已开奖</span>
+                </div>
+                <div class="title-right">
+                    <span class="title-rule">活动规则</span>
+                </div>
+            </div>
+            <!-- 奖品 -->
+            <div id="content">
+                <div class="img">123</div>
+                <div class="shop-name">SK-II 护肤精华露（神仙水）230毫升</div>
+                <div class="shop-msg">价值1300元 共1份</div>
+                <div class="msg">
+                    恭喜您 中大奖啦<br>
+                    快去领取奖品吧
+                </div>
+                <div class="btns">
+                    <button id="keep">领取奖品</button>
+                    <button id="go-index">继续抽奖</button>
+                </div>
+            </div>
+        </section>
+        <!-- 奖品详情 -->
+        <section id="prize">
+            <div id="modal">
+                <i id="close">X</i>
+                <p class="prize-name">奖品名称：SK-II 护肤精华露230毫升</p>
+                <span class="hr"></span>
+                <div class="user-info">
+                    <label for="user-name" class="user-label">收件人姓名</label>
+                    <input type="text" id="user-name" class="user-input">
+                    <label for="user-number" class="user-label">收件人手机号</label>
+                    <input type="text" id="user-number" class="user-input">
+                    <label for="user-idcard" class="user-label">收件人身份证号码</label>
+                    <input type="text" id="user-idcard" class="user-input">
+                    <label for="user-address" class="user-label">收件人地址</label>
+                    <input type="text" id="user-address" class="user-input">
+                </div>
+                <div class="btns">
+                    <span id="btns-cancel">取消</span>
+                    <span id="btns-confirm">确定</span>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../js/win.js"></script>
+</body>
+
+</html>

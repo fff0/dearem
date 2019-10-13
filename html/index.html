@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="x5-page-mode" content="no-title">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-orientation" content="portrait">
+    <title>每日抽奖</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <script>
+        // 根据不同屏幕进行自适应
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+    </script>
+    <script src="../lib/ejs.min.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <!-- 头部模板 -->
+        <header id="header"></header>
+        <script id="headerTemplate" type="text/template">
+            <div id="headerContent"><%= title%></div>
+        </script>
+        <!-- 内容区域 -->
+        <main id="main">
+            <!-- 上半部分 -->
+            <div id="topShop"></div>
+            <script id="topArea" type="text/template">
+                <ul id="topArea">
+                    <% for(var i=0; i<3; i++) { %>
+                    <li>
+                        <img src="" alt="" class="img">
+                        <div class="content">
+                            <span class="title">免费抽奖</span>
+                            <span class="time">9月19日11:00 自动开奖</span>
+                            <p class="desc">SK-II 护肤精华露（神仙水）230毫升</p>
+                            <p class="price">价值1300元 共1份</p>
+                        </div>
+                        <button class="topButton">点击0元抽</button>
+                    </li>
+                    <% } %>
+                </ul>
+            </script>
+
+            <div id="title">积分夺宝</div>
+
+            <!-- 下半部分 -->
+            <div id="bottomShop"></div>
+            <script id="bottom" type="text/template">
+                <ul id="bottomArea">
+                    <% for(var j=0; j<4; j++) { %>
+                    <li>
+                        <img src="" alt="" class="img">
+                        <p class="contentTitle">一等奖：标题标题标题标题标题</p>
+                        <div>
+                            <span class="process">开奖进度 <i>10/99</i></span>
+                            <div class="processImg">
+                                <span class="processing"></span>
+                            </div>
+                            <button class="bottomButtom">积分抽奖</button>
+                        </div>
+                    </li>
+                    <% } %>
+                </ul>
+            </script>
+        </main>
+        <!-- 底部模板 -->
+        <footer id="footer"> </footer>
+        <script src="../js/footer.ejs" id="footerTemplate" type="text/template">
+            <div id="footerContent">
+                <div class="button-left">
+                    <img src="../img/house.png" alt="">
+                    <span class="bottom-text">抽奖首页</span>
+                </div>
+                <div class="button-right">
+                    <img src="../img/small_gift.png" alt="">
+                    <span class="bottom-text">我的抽奖</span>
+                </div>
+            </div>
+        </script>
+    </div>
+</body>
+<script src="../js/header.js"></script>
+<script src="../js/footer.js"></script>
+<script>
+    var topArea = document.getElementById('topArea').innerHTML;
+    var topArearHtml = ejs.render(topArea, {});
+    document.getElementById('topShop').innerHTML = topArearHtml;
+
+    var bottom = document.getElementById('bottom').innerHTML;
+    var bottomAreaHtml = ejs.render(bottom, {});
+    document.getElementById('bottomShop').innerHTML = bottomAreaHtml;
+</script>
+
+</html>

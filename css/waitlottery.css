@@ -1,0 +1,84 @@
+#container {
+    width: 100%;
+    height: 100%;
+}
+
+#main {
+    height: 100%;
+    background-color: #EFEFF4;
+    padding-top: .93rem;
+    padding-left: .2rem;
+    padding-right: .3rem;
+}
+
+#main h2 {
+    font-size: .48rem;
+    line-height: 1rem;
+}
+
+/* 顶部 */
+/* 顶部 */
+#main #topArea li {
+    width: 7.1rem;
+    height: 2rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: .12rem;
+    margin-bottom: .1rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#main #topArea li .img {
+    width: 1.8rem;
+    height: 1.8rem;
+    background-color: rgba(255, 84, 96, 1);
+    margin-left: .1rem;
+}
+
+#main #topArea button.topButton {
+    width: 1.6rem;
+    height: .44rem;
+    background: rgba(255, 84, 96, 1);
+    border-radius: .22rem;
+    color: #fff;
+    white-space: nowrap;
+    font-size: .1rem;
+    position: absolute;
+    right: .3rem;
+    bottom: .3rem;
+}
+
+#main #topArea li .content {
+    margin-left: .3rem;
+}
+
+#main #topArea li .price {
+    font-size: .28rem;
+    color: rgba(255, 84, 96, 1);
+    line-height: .6rem;
+}
+
+#main #topArea li .time {
+    color: #5893FF;
+}
+
+
+/* 底部 */
+#main #bottomArea li {
+    width: 7.1rem;
+    height: .7rem;
+    background-color: #fff;
+    border-radius: .12rem;
+    margin-bottom: .1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#main #bottomArea li span.contentLeft {
+    color: #333;
+}
+
+#main #bottomArea li span.contentRight {
+    color: #999;
+}
