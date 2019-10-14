@@ -1,5 +1,22 @@
-var code_data = [],value = 1001;
-;(function($){
+var code_data = [],value = 1001,yourPoint=null;
+// ;(function($){
+    // 积分判断
+    $.post({
+        url: 'https://mall-app.sogrumpy.cn/app/api/v1/marketing/JiFenDuoBao/GetIndexProduct',
+        headers: {
+         'X-Token': "e6c46781833345f4a94ccf51916ab61c000186b705da1dbc2",
+         'Content-Type': 'application/json',
+         },
+         data: JSON.stringify({ 'txnId': value}),
+        success: function(res){
+            // yourPoint = res.data.yourPoint;
+            // console.log(res)
+            yourPoint=500;
+        },
+        error: function() {
+         console.log(1);
+        }
+       });
     $.post({
         url: 'https://mall-app.sogrumpy.cn/app/api/v1/marketing/JiFenDuoBao/JiFenChouDetail',
         headers: {
@@ -30,8 +47,13 @@ var code_data = [],value = 1001;
         }
     });
     $('#exc_add').click(function(){
-        exc_num++;
-        $('#exc_num').text(exc_num)
+        console.log(exc_num,yourPoint)
+        if(exc_num*100 < yourPoint){
+            exc_num++;
+            $('#exc_num').text(exc_num)
+        }else{
+            box2.addClass('block')
+        }
     });
     // 弹窗交互
     var box1 = $('#box1'),box2=$('#box2');
@@ -80,4 +102,4 @@ var code_data = [],value = 1001;
         box2.removeClass('block')
     });
     $('#showCode').click(function () {$('.codeBox').eq(0).toggleClass('no_height')})
-})(jQuery);
+// })(jQuery);
