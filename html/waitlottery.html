@@ -14,42 +14,34 @@
     <meta name="x5-orientation" content="portrait">
     <title>每日抽奖</title>
     <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/waitlottery.css">
-    <script>
-        // 根据不同屏幕进行自适应
-        document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
-    </script>
-    <script src="../lib/ejs.min.js"></script>
+
 </head>
 
 <body>
     <div id="container">
-        <!-- 头部模板 -->
-        <header id="header"></header>
-        <script id="headerTemplate" type="text/template">
-            <div id="headerContent"><%= title%></div>
-        </script>
         <!-- 内容区域 -->
         <main id="main">
             <h2>待开奖</h2>
             <!-- 上半部分 -->
             <div id="topShop"></div>
-            <script id="topArea" type="text/template">
+            <script id="top" type="text/template">
+                <% if (topData.length) { %>
                 <ul id="topArea">
-                    <% for(var i=0; i<3; i++) { %>
+                    <% topData.forEach(function(item){ %>
                     <li>
-                        <img src="" alt="" class="img">
+                        <img src="<%= item.product.productImg%>" alt="" class="img">
                         <div class="content">
-                            <p class="title">SK-II 护肤精华露（神仙水）230毫升</p>
-                            <p class="price">价值1300元 共1份</p>
-                            <span class="time">9月19日11:00 自动开奖</span>
+                            <p class="title"><%= item.product.productName%></p>
+                            <p class="price">价值<%= item.product.salePrice%>元 共<%= item.product.salesVolume%>份</p>
+                            <span class="time"><%= utils.resetData(item.product.updateTime)%> 自动开奖</span>
                         </div>
                          <button class="topButton">提升中奖率</button>
                     </li>
-                    <% } %>
+                    <% }) %>
                 </ul>
+                <% } %>
             </script>
 
             <h2>已开奖</h2>
@@ -57,14 +49,16 @@
             <!-- 下半部分 -->
             <div id="bottomShop"></div>
             <script id="bottom" type="text/template">
+                <% if (bottomData.length) { %>
                 <ul id="bottomArea">
-                    <% for(var j=0; j<3; j++) { %>
+                    <% bottomData.forEach(function(item){ %>
                     <li>
-                        <span class="contentLeft">华为P30手机 全网通 8+64G 天空之境</span>
-                        <span class="contentRight">9月19日 23:00 ›<i></i></span>
+                        <span class="contentLeft"><%= item.product.productName%></span>
+                        <span class="contentRight"><%= utils.resetData(item.createTime)%> ›<i></i></span>
                     </li>
-                    <% } %>
+                    <% }) %>
                 </ul>
+                <% } %>
             </script>
         </main>
         <!-- 底部模板 -->
@@ -83,16 +77,35 @@
         </script>
     </div>
 </body>
-<script src="../js/header.js"></script>
+<script src="../js/resetclient.js"></script>
+<script src="../lib/jquery.min.js"></script>
+<script src="../lib/ejs.min.js"></script>
+<script src="../lib/utils.js"></script>
 <script src="../js/footer.js"></script>
 <script>
-    var topArea = document.getElementById('topArea').innerHTML;
-    var topArearHtml = ejs.render(topArea, {});
-    document.getElementById('topShop').innerHTML = topArearHtml;
+    utils.request('/v1/marketing/JiFenDuoBao/GetMyAct', {}, function (rep) {
+        console.log(rep);
 
-    var bottom = document.getElementById('bottom').innerHTML;
-    var bottomAreaHtml = ejs.render(bottom, {});
-    document.getElementById('bottomShop').innerHTML = bottomAreaHtml;
+        if (rep && rep.code == 0) {
+            // 顶部数据渲染
+            var topData = rep && rep.data && rep.data.joining
+            var top = $('#top').html();
+            var topArearHtml = ejs.render(top, {
+                topData: topData
+            });
+            $('#topShop').html(topArearHtml);
+
+
+
+            // 底部数据渲染
+            var bottomData = rep && rep.data && rep.data.joined
+            var bottom = $('#bottom').html();
+            var bottomAreaHtml = ejs.render(bottom, {
+                bottomData: bottomData
+            });
+            $('#bottomShop').html(bottomAreaHtml);
+        }
+    });
 </script>
 
 </html>

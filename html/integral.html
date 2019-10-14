@@ -12,7 +12,7 @@
   <meta name="x5-page-mode" content="no-title">
   <meta name="x5-fullscreen" content="true">
   <meta name="x5-orientation" content="portrait">
-  <title>Document</title>
+  <title>积分兑换</title>
   <link rel="stylesheet" href="../css/reset.css" type="text/css">
   <link href="../css/integral.css" rel="stylesheet" type="text/css" />
 </head>
@@ -29,7 +29,7 @@
     <div id="top">
       <div class="top1">
         <h2>待开奖</h2>
-        <span>活动规则</span>
+        <div id="active">活动规则</div>
       </div>
       <!-- 进度条 -->
       <div class="progress">
@@ -43,14 +43,17 @@
     </div>
     <!-- 待开奖商品信息 -->
     <div id="award">
-      <div class="img-box">
-        <img src="" alt="">
+      <script id="award_data" type="text/template">
+
+        <div class="img-box">
+        <img src=<%= award_data.product.productImg %> alt="">
       </div>
       <div class="img-edit">
         <h3>一等奖</h3>
-        <span>SK-II 护肤精华露（神仙水）230毫升</span>
-        <div>价值1300元 共1份</div>
+        <span><%= award_data.product.productName %></span>
+        <div>价值<%= award_data.product.markingPrice %>元 共<%= award_data.nowAmount %>份</div>
       </div>
+    </script>
     </div>
     <!-- 兑换次数 -->
     <div class="exchange">
@@ -66,11 +69,11 @@
 
     <!-- 幸运码信息 -->
     <section id="codeBox">
-      
 
-</section>
-<script id="code_data" type="text/template">
-  <div class="massage">
+
+    </section>
+    <script id="code_data" type="text/template">
+      <div class="massage">
     <h2>我已获得<span class="number"><%= code_data.length %></span>个幸运码</h2>
   </div>
   <!-- 幸运码条数信息 -->
@@ -92,14 +95,17 @@
   <% } %>
 </script>
 
+    <!-- 热门商品模板 -->
+    <script id="hotShop" type="text/template">
+      <% for(var i=0;i < 4;i++){ %>
+  <div class="h-inbox"><%= i%></div>
+  <% } %>
+</script>
     <!-- 热门商品 -->
     <div id="hot-shops">
       <h3>热门商品</h3>
-      <div class="h-box">
-        <div class="h-inbox">1111</div>
-        <div class="h-inbox">2111</div>
-        <div class="h-inbox">3111</div>
-        <div class="h-inbox">4111</div>
+      <div id="h-box">
+
       </div>
     </div>
   </div>
@@ -124,7 +130,7 @@
       <h1>积分抽奖</h1>
       <span></span>
       <div id="text">
-        <p>很遗憾您的积分不足100积分</p>
+        <p id="bzJfen">很遗憾您的积分不足**积分</p>
         <p>不能参加本期抽奖活动</p>
       </div>
       <div id="button-box2">

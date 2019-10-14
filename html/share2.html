@@ -14,7 +14,7 @@
     <meta name="x5-orientation" content="portrait">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/share2.css">
-    <title>分享 拷贝2</title>
+    <title>每日抽奖</title>
     <script>
         document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
     </script>
@@ -23,26 +23,28 @@
 <body>
     <div id="box">
         <!-- 顶部抽奖 -->
-        <header id="header">每日抽奖</header>
+        <!-- <header id="header">每日抽奖</header> -->
         <!-- 内容区域 -->
         <section id="content">
-            <div class="avatar"></div>
+            <div class="avatar"><img src="" alt="" id="user-img"></div>
             <p class="msg">
-                我正在参加免费抽奖，已经中了一次了
-                你也来试一试吧！
+                <span id="msg-title">&nbsp;</span><br>
+                <span id="msg-text">&nbsp;</span>
             </p>
             <!-- 商品 -->
             <div class="commodity">
-                <img src="" alt="">
+                <img src="" alt="" id="pro-img">
             </div>
-            <p class="name">SK-II 护肤精华露（神仙水）230毫升</p>
-            <p class="pro-num">价值1300元 共1份</p>
+            <p class="name" id="pro-name">&nbsp;</p>
+            <p class="pro-num" id="pro-price"> &nbsp;</p>
             <span class="hr"></span>
-            <p class="open-time">09月19日12:00 自动开奖</p>
-            <button class="btns">点击参与抽奖</button>
+            <p class="open-time" id="pro-time">&nbsp;</p>
+            <button class="btns" id="lottery">点击参与抽奖</button>
         </section>
     </div>
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../lib/utils.js"></script>
+    <script src="../js/share2.js"></script>
 </body>
 
 </html>

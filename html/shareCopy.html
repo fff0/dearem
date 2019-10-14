@@ -19,78 +19,57 @@
 
 <body>
   <div id="box">
-    <!-- 每日抽奖头部 -->
-    <div id="header">
-      <span class="title">每日抽奖</span>
-    </div>
     <!-- 内容部分 -->
-
     <!-- 待开奖信息时间 -->
     <div id="top">
       <div class="top1">
-        <h2>待开奖</h2>
-        <span>活动规则</span>
+        <h2 id="t_title">待开奖</h2>
+        <div id="active">活动规则</div>
       </div>
       <div class="top2">
-        <span>09时00分59秒后自动开奖</span>
+        <span id="time"></span>
       </div>
     </div>
     <!-- 待开奖商品信息 -->
     <div id="award">
-			<script  id="award_data" type="text/template">
-				<div class="img-box">
+      <script id="award_data" type="text/template">
+        <div class="img-box">
         <img src=<%= award_data.product.productImg %> alt="">
       </div>
       <div class="img-edit">
         <h3>一等奖</h3>
         <span><%= award_data.product.productName %></span>
-        <div>价值<%= award_data.product.markingPrice %>元 共<%= award_data.nowAmount %>份</div>
+        <div>价值<%= award_data.product.markingPrice %>元 共1份</div>
       </div>
 			</script>
-      
+
     </div>
     <!-- 幸运码信息 -->
     <section id="codeBox">
-      <script id="code_data" type="text/template">
-  <div class="massage">
-    <h2>我已获得<span class="number"><%= code_data.length %></span>个幸运码</h2>
-  </div>
-  <!-- 幸运码条数信息 -->
-  <div class="codeBox" >
-    <!-- 单条幸运码信息 -->
-    
-      <% for(var i=0;i < code_data.length;i++){ %>
-    <div class="code">
-        <div class="code-number"><%= code_data[i].code%></div>
-      <div class="code-massage">
-        <h5><%= code_data[i].codeFrom%></h5>
-        <span><%= code_data[i].createTime%></span>
-      </div>
-    </div>
-    <% } %>
-  </div>
-  <% if(code_data.length > 1){ %>
-  <div class="showCode" id="showCode">查看所有幸运码</div>
-  <% } %>
-</script>
+      
 
 </section>
     
 
     <!-- 邀请按钮 -->
-    <div class="button">
-      <span>邀请好友 得更多幸运码</span>
+    <div id="share-button">
+      <div id="shareBtn" >邀请好友 得更多幸运码</div>
     </div>
     <div class="tips">Tips: 邀请好友参加 中奖概率翻倍哦</div>
+
+
+    <!-- 热门商品模板 -->
+    <script id="hotShop" type="text/template">
+      <% for(var i=0;i < 4;i++){ %>
+  <div class="h-inbox"><%= i%></div>
+  <% } %>
+</script>
 
     <!-- 热门商品 -->
     <div id="hot-shops">
       <h3>热门商品</h3>
-      <div class="h-box">
-        <div class="h-inbox">1111</div>
-        <div class="h-inbox">2111</div>
-        <div class="h-inbox">3111</div>
-        <div class="h-inbox">4111</div>
+      <div id="h-box">
+      
       </div>
     </div>
   </div>
@@ -98,8 +77,29 @@
 <script>
   document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
 </script>
-<script src="./../lib/ejs.min.js"></script>
-<script src="./../lib/jquery.min.js"></script>
-<script src="./../js/shareCopy_ejs.js"></script>
+<script id="code_data" type="text/template">
+  <div class="massage">
+<h2>我已获得<span class="number"><%= code_data.length %></span>个幸运码</h2>
+</div>
+<!-- 幸运码条数信息 -->
+<div class="codeBox" >
+<!-- 单条幸运码信息 -->
 
+<% for(var i=0;i < code_data.length;i++){ %>
+<div class="code">
+<div class="code-number"><%= code_data[i].code %></div>
+<div class="code-massage">
+  <h5><%= code_data[i].codeFrom %></h5>
+  <span><%= code_data[i].createTime %></span>
+</div>
+</div>
+<% } %>
+</div>
+<% if(code_data.length > 3){ %>
+<div class="showCode" id="showCode">查看所有幸运码</div>
+<% } %>
+</script>
+      <script src="./../lib/ejs.min.js"></script>
+      <script src="./../lib/jquery.min.js"></script>
+      <script src="./../js/shareCopy_ejs.js"></script>
 </html>

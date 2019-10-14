@@ -22,7 +22,7 @@
 
 <body>
     <div id="box">
-        <header id="header">每日抽奖</header>
+        <!-- <header id="header">每日抽奖</header> -->
         <!-- 内容区域 -->
         <section class="inner">
             <div class="title">
@@ -31,7 +31,7 @@
                     <span class="title-time">9月19日23:00已开奖</span>
                 </div>
                 <div class="title-right">
-                    <span class="title-rule">活动规则</span>
+                    <a href="./rules.html" class="title-rule">活动规则</a>
                 </div>
             </div>
             <!-- 奖品 -->
@@ -44,8 +44,8 @@
                     您与大奖擦肩而过了
                 </div>
                 <div class="btns">
-                    <button id="keep">继续抽奖</button>
-                    <button id="go-index">逛逛首页</button>
+                    <button id="keep"><a href="./index.html">继续抽奖</a></button>
+                    <button id="go-index"><a href="./index.html">逛逛首页</a></button>
                 </div>
             </div>
             <div id="footer">
@@ -59,7 +59,7 @@
                             <span class="name"><%= list[i].name %></span>
                             <span class="win-code"><%= list[i].code %></span>
                         </li>
-                        <% } %>
+                    <% } %>
                 </script>
 
                 </ul>
@@ -67,26 +67,9 @@
         </section>
     </div>
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../lib/utils.js"></script>
     <script src="../lib/ejs.min.js"></script>
-    <script>
-        var wonList = document.getElementById('won-list').innerHTML;
-        var list = [{
-                atavar: '头像',
-                name: '风吹鸡蛋壳',
-                code: '中奖码10973387'
-            },
-            {
-                atavar: '头像',
-                name: '鸡蛋吹风格',
-                code: '中奖码10973387'
-            }
-        ];
-        var listHtml = ejs.render(wonList, {
-            list
-        });
-        console.log(listHtml);
-        $('#winner').html(listHtml);
-    </script>
+    <script src="../js/notwon.js"></script>
 </body>
 
 </html>

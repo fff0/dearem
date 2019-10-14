@@ -1,33 +1,44 @@
 #container {
     width: 100%;
+    height: 100%;
     background-color: #FF5460;
-    padding: 1rem 0;
 }
 
 /* 顶部 */
+#main #topArea {
+    padding-top: .2rem;
+}
 #main #topArea li {
     width: 7.1rem;
     height: 2rem;
     background: rgba(255, 255, 255, 1);
     border-radius: .12rem;
-    margin: .2rem 0 0 .2rem;
+    margin: 0 auto .2rem;
     display: flex;
     position: relative;
 }
 
 #main #topArea li .content {
-    margin: .46rem 0 0 .8rem;
+    margin-top: .46rem;
+}
+
+#main #topArea li .imgBox {
+    width: 1.8rem;
+    height: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .1rem;
 }
 
 #main #topArea li .img {
-    width: .4rem;
-    height: 1.55rem;
-    background-color: rgba(255, 84, 96, 1);
-    margin: .23rem 0 0 .8rem;
+    width: 100%;
+    height: 100%;
 }
 
 #main #topArea li .title {
     font-size: .36rem;
+    font-family: PingFang SC;
     font-weight: bold;
     color: rgba(0, 0, 0, 1);
     line-height: .36rem;
@@ -44,8 +55,9 @@
 #main #topArea li .desc {
     font-size: .2rem;
     font-weight: 400;
+    font-family: PingFang SC;
     color: rgba(51, 51, 51, 1);
-    line-height: .6rem;
+    line-height: .36rem;
 }
 
 #main #topArea li .price {
@@ -93,27 +105,26 @@
 }
 
 #main #bottomArea li .processImg {
-    width: 1.8rem;
+    width: 1.9rem;
     height: .08rem;
     border: .01rem solid #E5E5E5;
 }
 
 #main #bottomArea li .processImg .processing {
     display: block;
-    width: 1.13rem;
     height: 100%;
-    background-color: #FF2E50;
+    background: linear-gradient(90deg, rgba(255, 106, 117, 1), rgba(255, 46, 80, 1));
     border-radius: .02rem;
 }
 
 #main #bottomArea li .bottomButtom {
     display: block;
-    width: 1.36rem;
-    height: .48rem;
+    width: 1.06rem;
+    height: .38rem;
     background: rgba(255, 84, 96, 1);
-    border-radius: .35rem;
+    border-radius: .19rem;
     color: #fff;
-    white-space: now    rap;
+    white-space: nowrap;
     font-size: .1rem;
     position: absolute;
     bottom: .2rem;
@@ -124,14 +135,17 @@
     display: block;
     width: 2.34rem;
     height: 2.34rem;
-    background-color: skyblue;
     margin: .1rem 0 0 .58rem;
 }
 
 
 #main #bottomArea li .contentTitle {
-    color: #999999;
+    font-size: .2rem;
     margin-left: .21rem;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: rgba(153, 153, 153, 1);
+    line-height: .24rem;
 }
 
 #main #bottomArea li div {
@@ -139,5 +153,23 @@
 }
 
 #main #bottomArea li .process {
-    color: #FF5460;
+    font-size: .2rem;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: rgba(255, 84, 96, 1);
+    line-height: .24rem;
+}
+
+#main #bottomArea li .salePrice {
+    width: 1rem;
+    height: 1rem;
+    background: rgba(187, 214, 247, 1);
+    border-radius: 50%;
+    position: absolute;
+    right: .1rem;
+    top: .1rem;
+    opacity: 0.8;
+    text-align: center;
+    color: #fff;
+    line-height: .5rem;
 }

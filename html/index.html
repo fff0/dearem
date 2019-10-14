@@ -14,92 +14,180 @@
     <meta name="x5-orientation" content="portrait">
     <title>每日抽奖</title>
     <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/index.css">
-    <script>
-        // 根据不同屏幕进行自适应
-        document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
-    </script>
-    <script src="../lib/ejs.min.js"></script>
+    <link rel="stylesheet" href="../css/lotteryfree.css">
+    <link rel="stylesheet" href="../css/warning.css">
 </head>
 
 <body>
+    <!-- 正常显示的容器 -->
     <div id="container">
-        <!-- 头部模板 -->
-        <header id="header"></header>
-        <script id="headerTemplate" type="text/template">
-            <div id="headerContent"><%= title%></div>
-        </script>
         <!-- 内容区域 -->
         <main id="main">
             <!-- 上半部分 -->
             <div id="topShop"></div>
             <script id="topArea" type="text/template">
                 <ul id="topArea">
-                    <% for(var i=0; i<3; i++) { %>
                     <li>
-                        <img src="" alt="" class="img">
-                        <div class="content">
-                            <span class="title">免费抽奖</span>
-                            <span class="time">9月19日11:00 自动开奖</span>
-                            <p class="desc">SK-II 护肤精华露（神仙水）230毫升</p>
-                            <p class="price">价值1300元 共1份</p>
+                        <div class="imgBox">
+                            <img src="<%= topData.productImg%>" class="img">
                         </div>
-                        <button class="topButton">点击0元抽</button>
+                        <div class="content">
+                            <span class="title"><%= topData.keyWord%></span>
+                            <span class="time"><%= endTime%> 自动开奖</span>
+                            <p class="desc"><%= topData.productName%></p>
+                            <p class="price">价值<%= topData.salePrice%>元 共<%= topData.salesVolume%>份</p>
+                        </div>
+                        <!-- A: 同一时间只会出现一个 -->
+                        <button id="topClickBtn" class="topButton" data-txnId="<%= txnId%>">点击0元抽</button>
                     </li>
-                    <% } %>
                 </ul>
             </script>
-
             <div id="title">积分夺宝</div>
-
             <!-- 下半部分 -->
             <div id="bottomShop"></div>
             <script id="bottom" type="text/template">
-                <ul id="bottomArea">
-                    <% for(var j=0; j<4; j++) { %>
-                    <li>
-                        <img src="" alt="" class="img">
-                        <p class="contentTitle">一等奖：标题标题标题标题标题</p>
-                        <div>
-                            <span class="process">开奖进度 <i>10/99</i></span>
-                            <div class="processImg">
-                                <span class="processing"></span>
+                <% if (bottomData.length) { %>
+                    <ul id="bottomArea">
+                        <% bottomData.forEach(function(item) { %>
+                        <li>
+                            <img src="<%= item.product.productImg%>" alt="" class="img">
+                            <p class="contentTitle"><%= item.product.productName%></p>
+                            <div>
+                                <span class="process">开奖进度 <i><%= item.pointPerTime%>/<%= item.pointTotalNeed%></i></span>
+                                <div class="processImg">
+                                    <span class="processing"></span>
+                                </div>
+                                <button class="bottomButtom">积分抽奖</button>
                             </div>
-                            <button class="bottomButtom">积分抽奖</button>
-                        </div>
-                    </li>
-                    <% } %>
-                </ul>
+                            <span class="salePrice">价值<br /><%= item.product.salePrice%>元</span>
+                        </li>
+                        <% }) %>
+                    </ul>
+                <% } %>
             </script>
         </main>
-        <!-- 底部模板 -->
-        <footer id="footer"> </footer>
-        <script src="../js/footer.ejs" id="footerTemplate" type="text/template">
-            <div id="footerContent">
-                <div class="button-left">
-                    <img src="../img/house.png" alt="">
-                    <span class="bottom-text">抽奖首页</span>
-                </div>
-                <div class="button-right">
-                    <img src="../img/small_gift.png" alt="">
-                    <span class="bottom-text">我的抽奖</span>
-                </div>
-            </div>
-        </script>
     </div>
+
+
+    <!-- 浮层 -->
+    <div id="barrier">
+        <div class="layer">
+            <div class="close">×</div>
+            <h4>参与成功</h4>
+            <div class="hr"></div>
+            <div class="desc">获得1个幸运码<br />9月19 日12:00开奖<br />凭幸运码抽奖，码越多中奖概率越高</div>
+            <div class="luckyBox">
+                <img src="../img/rectangular.png" alt="">
+                <div class="luckyNum"></div>
+            </div>
+            <p>每邀1位好友，可得5个幸运码</p>
+            <button id="btnClick" class="btn">邀好友抽奖 得更多码</button>
+        </div>
+    </div>
+
+
+    <!-- 未参加任何抽奖 -->
+    <div id="warning">
+        <div id="warningIn">
+            <img src="../img/gift.png" alt="">
+            <div>您尚未参加抽奖<br />快去抽奖首页参加吧</div>
+        </div>
+    </div>
+
+    <!-- 底部模板 -->
+    <footer id="footer"> </footer>
+    <script src="../js/footer.ejs" id="footerTemplate" type="text/template">
+        <div id="footerContent">
+            <div class="button-left">
+                <img src="../img/house.png" alt="">
+                <span class="bottom-text">抽奖首页</span>
+            </div>
+            <div class="button-right">
+                <img src="../img/small_gift.png" alt="">
+                <span class="bottom-text">我的抽奖</span>
+            </div>
+        </div>
+    </script>
+
 </body>
-<script src="../js/header.js"></script>
+<script src="../js/resetclient.js"></script>
+<script src="../lib/jquery.min.js"></script>
+<script src="../lib/ejs.min.js"></script>
+<script src="../lib/utils.js"></script>
 <script src="../js/footer.js"></script>
 <script>
-    var topArea = document.getElementById('topArea').innerHTML;
-    var topArearHtml = ejs.render(topArea, {});
-    document.getElementById('topShop').innerHTML = topArearHtml;
+    utils.request('/v1/marketing/JiFenDuoBao/GetIndexProduct', {}, function (rep) {
+        console.log(rep);
 
-    var bottom = document.getElementById('bottom').innerHTML;
-    var bottomAreaHtml = ejs.render(bottom, {});
-    document.getElementById('bottomShop').innerHTML = bottomAreaHtml;
+        // if (rep && rep.data && rep.data.yourPoint == 0) {
+        //     $('#container').hide();
+        //     $('#warning').show();
+        //     return;
+        // }
+
+
+        if (rep && rep.code == 0) {
+            // 上半部分区域
+            var topData = rep && rep.data && rep.data.normalProduct
+            var endTime = (function (time) {
+                return utils.resetData(time)
+            }(topData.endTime))
+            var topArea = $('#topArea').html();
+            var topArearHtml = ejs.render(topArea, {
+                topData: topData.product,
+                endTime: endTime,
+                txnId: topData.txnId
+            });
+            $('#topShop').html(topArearHtml);
+
+
+            // 下半部分区域
+            var bottomData = rep && rep.data && rep.data.pointProducts
+            var bottom = $('#bottom').html();
+            var bottomAreaHtml = ejs.render(bottom, {
+                bottomData: bottomData
+            });
+            $('#bottomShop').html(bottomAreaHtml);
+
+            // 进度条
+            var processItem = $('.processing'); //进度条集合 [0,1...]
+            // 循环遍历数据
+            for (var i of bottomData) {
+                var scale = i.pointPerTime / i.pointTotalNeed // 比例
+                var processImgWidth = $('.processImg').css('width').replace($('.processImg').css(
+                    'width').substr(-
+                    2), ''); // 当前进度条盒子的总宽
+                $($('.processing')[i.id - 1]).css('width', scale * processImgWidth / 100 + 'rem') // 渲染出每个不同的进度条
+            }
+
+            // 点击0元抽
+            $('.topButton').on('click', function () {
+                var self = this;
+                utils.request('/v1/marketing/JiFenDuoBao/LingYuanChou', {
+                    "txnId": 8
+                }, function (rep2) {
+                    if (rep2 && rep2.code == 0) { // 参与抽奖成功
+                        $('#barrier').show();
+                        $('#container').hide();
+                        $('.luckyNum').text(rep2.data && rep2.data.code);
+                        // 邀好友抽奖 得更多码
+                        $('#btnClick').on('click',function(){
+                            location.href= './shareCopy.html?txnId=' + $(self).attr('data-txnId');
+                        })
+                    }
+                })
+            })
+        }
+    });
+
+
+    // 浮层关闭按钮
+    $('.close').on('click', function () {
+        $('#barrier').hide();
+        $('#container').show();
+    })
 </script>
 
 </html>

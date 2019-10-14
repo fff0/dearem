@@ -38,9 +38,12 @@ html {
     background: #fff;
     margin: .32rem 0 .34rem;
 }
+#user-img{
+    height: 1.24rem;
+}
 
 #content .msg {
-    width: 5.15rem;
+    width: 7rem;
     font-size: .3rem;
     font-family: PingFang SC;
     font-weight: 500;
@@ -53,6 +56,9 @@ html {
     width: 4.5rem;
     height: 4.5rem;
     background: rgba(255, 255, 255, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: .12rem;
     margin-bottom: .31rem;
 }
@@ -70,6 +76,10 @@ html {
     font-family: PingFang SC;
     font-weight: bold;
     color: rgba(255, 241, 0, 1);
+}
+
+#pro-img {
+    width: 4.4rem;
 }
 
 #content .hr {
@@ -98,4 +108,12 @@ html {
     font-family: PingFang SC;
     font-weight: bold;
     color: rgba(238, 59, 39, 1);
+}
+
+#content #pro-name {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: .4rem;
+    padding-right: .4rem;
+    text-align: center;
 }

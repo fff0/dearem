@@ -14,7 +14,7 @@
     <meta name="x5-orientation" content="portrait">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/win.css">
-    <title>开奖已中奖</title>
+    <title>每日抽奖</title>
     <script>
         document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
     </script>
@@ -22,23 +22,25 @@
 
 <body>
     <div id="box">
-        <header id="header">每日抽奖</header>
+        <!-- <header id="header">每日抽奖</header> -->
         <!-- 内容区域 -->
         <section id="inner">
             <div class="title">
                 <div class="title-left">
                     <span class="title-isWin">已开奖</span>
-                    <span class="title-time">9月19日23:00已开奖</span>
+                    <span class="title-time" id="pro-time">&nbsp;</span>
                 </div>
                 <div class="title-right">
-                    <span class="title-rule">活动规则</span>
+                    <a class="title-rule" href="./rules.html">活动规则</a>
                 </div>
             </div>
             <!-- 奖品 -->
             <div id="content">
-                <div class="img">123</div>
-                <div class="shop-name">SK-II 护肤精华露（神仙水）230毫升</div>
-                <div class="shop-msg">价值1300元 共1份</div>
+                <div class="img">
+                    <img src="" alt="" id="pro-img">
+                </div>
+                <div class="shop-name" id="pro-name">&nbsp;</div>
+                <div class="shop-msg" id="pro-price">&nbsp;</div>
                 <div class="msg">
                     恭喜您 中大奖啦<br>
                     快去领取奖品吧
@@ -48,11 +50,12 @@
                     <button id="go-index">继续抽奖</button>
                 </div>
             </div>
+            <p class="timeout">请48小时内领取奖品，过期作废</p>
         </section>
         <!-- 奖品详情 -->
         <section id="prize">
             <div id="modal">
-                <i id="close">X</i>
+                <i id="close">x</i>
                 <p class="prize-name">奖品名称：SK-II 护肤精华露230毫升</p>
                 <span class="hr"></span>
                 <div class="user-info">
@@ -73,6 +76,7 @@
         </section>
     </div>
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../lib/utils.js"></script>
     <script src="../js/win.js"></script>
 </body>
 

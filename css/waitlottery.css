@@ -6,7 +6,6 @@
 #main {
     height: 100%;
     background-color: #EFEFF4;
-    padding-top: .93rem;
     padding-left: .2rem;
     padding-right: .3rem;
 }
@@ -32,7 +31,6 @@
 #main #topArea li .img {
     width: 1.8rem;
     height: 1.8rem;
-    background-color: rgba(255, 84, 96, 1);
     margin-left: .1rem;
 }
 
