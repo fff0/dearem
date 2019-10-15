@@ -42,6 +42,17 @@ $('#h-box').html(h_box_html);
             var codeBox = $("#code_data").html();
             var codeHtml = ejs.render(codeBox, code_data);
             $('#codeBox').html(codeHtml);
+			
+			// 获取进度条宽度
+			 if (document.getElementById("span")) {
+				  var nowAmount = award_data.nowAmount
+				  var needAmount = award_data.needAmount
+				document.getElementById("span").style.width = (nowAmount)/parseInt((nowAmount+needAmount))*100+'%';
+			}
+			
+			// 获取txnInfo.isPublished
+			var isPublished = res.data.txnInfo.isPublished
+			console.log(isPublished)
 
         },
         error: function () {
@@ -118,3 +129,5 @@ $('#h-box').html(h_box_html);
     });
     $('#showCode').click(function () { $('.codeBox').eq(0).toggleClass('no_height') })
 })(jQuery);
+
+ 
